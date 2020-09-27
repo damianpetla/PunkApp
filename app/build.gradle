@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.punkapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion '1.4.0'
+        kotlinCompilerExtensionVersion "${versions.compose}"
+    }
+
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+}
+
+dependencies {
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.coroutines.core
+    implementation deps.kotlin.coroutines.android
+
+    implementation deps.koin.core
+    implementation deps.koin.android
+    implementation deps.koin.viewmodel
+
+    implementation deps.ktx.core
+    implementation deps.architecture_components.livedata
+    implementation deps.architecture_components.viewmodel
+    implementation deps.appcompat
+    implementation deps.ui.constraint_layout
+    implementation deps.navigation.fragment
+    implementation deps.navigation.ui
+
+    implementation deps.compose.base
+    implementation deps.compose.tooling
+    implementation deps.compose.foundation
+    implementation deps.compose.material
+    implementation deps.compose.material_icons
+    implementation deps.compose.material_icons_extended
+    implementation deps.compose.livedata
+    implementation deps.compose.coil
+
+
+    implementation deps.retrofit.base
+    implementation deps.retrofit.gson
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}
