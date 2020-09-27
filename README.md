@@ -1,5 +1,9 @@
 # PunkApp
 
+### Android Studio
+
+Due to Jetpack Compose recommendations I was using Android Studio 4.2. I hope it's not a big inconvience. You can still open and run the project on stable Android Studio version.
+
 ### Used dependencies
 
  - Retrofit - for networking and getting data from Punk API
